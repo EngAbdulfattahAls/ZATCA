@@ -4,36 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WFAPITestConnection
+namespace ZatcaInvoice
 {
+    //كو  متغيرات عناصر الفاتوره
     public class InvoiceItemModel
     {
-        public InvoiceItemModel()
-        {
-            //  Id = Guid.NewGuid().ToString();
-        }
-        public string Id { get; set; }
        
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Qty { get; set; }
         public string Price { get; set; }
         public string NetValue { get; set; }
-       
         public string TotalDiscount { get; set; }
-      
         public string VAT { get; set; }
-       
-
-
         public string VATPercentage { get; set; }
        
     }
+   //كود متغيرات  الفاتوره كاملة قبل الارسال للزكاخ
     public class InvoiceToZatca
     {
-
-
         public Guid Id { get; set; }
-
         public long DetailId { get; set; }
         public string CompanyName { get; set; }
         public string CompanyTaxNumber { get; set; }
@@ -83,16 +73,8 @@ namespace WFAPITestConnection
         public string CustomerAddressRegionName { get; set; }
         public string PreviousInvoiceHash { get; set; }
         public InvoiceTypeCode invoTypeCode { get; set; }
-
-
-
-
-
-
-
-
-
     }
+// معداد ب انوع الفواتير حسب متطلبات هيئة الزكاه
     public enum InvoiceTypeCode
     {
         Invoice = 388,
@@ -100,6 +82,7 @@ namespace WFAPITestConnection
         Credit = 381,
         Prepayment = 386
     }
+    // متغيرات الرد من هيئة الزكاه
     public class Invoice
     {
         public Guid Id { get; set; }
